@@ -1,7 +1,7 @@
 require 'gosu'
 require 'gosu_tiled'
 
-class GameWindow < Gosu::Window
+class BasicGameWindow < Gosu::Window
   def initialize
     super(1024, 800, false)
     @map = Gosu::Tiled.load_json(self, 'JoburgDriveTmx.json')
@@ -21,4 +21,4 @@ class GameWindow < Gosu::Window
   end
 end
 
-GameWindow.new.show
+BasicGameWindow.new.show
