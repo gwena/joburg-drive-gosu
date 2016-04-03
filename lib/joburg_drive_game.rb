@@ -8,7 +8,7 @@ class GameWindow < Gosu::Window
   HEIGHT = 800
 
   def initialize
-    super(WIDTH, HEIGHT, { fullscreen: true } )
+    super(WIDTH, HEIGHT, false) # { fullscreen: true } )
     @map = Gosu::Tiled.load_json(self, 'JoburgDriveTmx.json')
     @player = PlayerCar.new(self)
     @viper = Viper.new(self)

@@ -13,23 +13,4 @@ class PlayerCar < Vehicule
     super
   end
 
-  def left
-    @x -= @speed
-    turning(270)
-  end
-
-  def right
-    @x += @speed
-    turning(90)
-  end
-
-  def up
-    @y -= @speed
-    turning(0)
-  end
-
-  def down
-    @y += @speed
-    turning(180)
-  end
 end
