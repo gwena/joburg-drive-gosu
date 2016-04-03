@@ -2,6 +2,7 @@ require 'gosu'
 require 'gosu_tiled'
 require_relative 'player_car'
 require_relative 'viper'
+require_relative 'minibus_taxi'
 
 class GameWindow < Gosu::Window
   WIDTH = 1024
@@ -12,16 +13,19 @@ class GameWindow < Gosu::Window
     @map = Gosu::Tiled.load_json(self, 'JoburgDriveTmx.json')
     @player = PlayerCar.new(self)
     @viper = Viper.new(self)
+    @minibus = MinibusTaxi.new(self)
   end
 
   def update
     @player.update
     @viper.update
+    @minibus.update
   end
 
   def draw
     @player.draw
     @viper.draw
+    @minibus.draw
     @map.draw(@player.x, @player.y)
   end
 

@@ -36,6 +36,9 @@ class Vehicule
     @y += @speed
     turn(180)
   end
+  
+  def stop 
+  end
 
   def turn(new_angle)
     if @target_angle != new_angle then

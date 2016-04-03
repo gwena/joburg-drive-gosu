@@ -18,6 +18,4 @@ class Viper < Vehicule
     super
   end
 
-  def stop 
-  end
 end
