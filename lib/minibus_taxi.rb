@@ -7,7 +7,7 @@ class MinibusTaxi < Vehicule
   OFFSET_PER_DRIFT = 0.25
 
   def initialize(window)
-    super(window, 500, 450, 0.5, 0, 'media/Cars/MinibusTaxi.png')
+    super(window, 500, 450, 0.5, 0, 'media/img/cars/MinibusTaxi.png')
     @stop_sound = Gosu::Sample.new(window, 'media/sound/carscreech.wav')
     @current_action = :stop
     @nb_drift = 0

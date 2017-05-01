@@ -4,7 +4,7 @@ class Viper < Vehicule
   ACTIONS = [:left, :right, :up, :down, :stop]
 
   def initialize(window)
-    super(window, 400, 450, 1, 0, "media/Cars/Black_viper.png")
+    super(window, 400, 450, 1, 0, "media/img/cars/Black_viper.png")
     @current_action = :stop
   end
 
