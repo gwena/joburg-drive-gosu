@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 require 'gosu'
 require 'gosu_tiled'
 require_relative 'player_car'
