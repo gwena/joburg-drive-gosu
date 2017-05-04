@@ -10,6 +10,9 @@ class GameWindow < Gosu::Window
   WIDTH = 1024
   HEIGHT = 800
 
+  HALF_WIDTH = WIDTH / 2
+  HALF_HEIGHT = HEIGHT / 2
+
   def initialize
     super(WIDTH, HEIGHT, false) # { fullscreen: true } )
     @map = Gosu::Tiled.load_json(self, 'JoburgDriveTmx.json')
@@ -29,7 +32,7 @@ class GameWindow < Gosu::Window
     @player.draw
     @viper.draw
     @minibus.draw
-    @map.draw(@player.x, @player.y)
+    @map.draw(@player.x - HALF_HEIGHT, @player.y - HALF_WIDTH)
   end
 
   def button_down(id)
