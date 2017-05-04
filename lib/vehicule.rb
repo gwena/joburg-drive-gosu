@@ -16,7 +16,7 @@ class Vehicule
     @angle_increment = ANGLE_INCREMENT
     @image = Gosu::Image.new image_file
   end
- 
+
   def left
     @x -= @speed
     turn(270)
@@ -36,7 +36,7 @@ class Vehicule
     @y += @speed
     turn(180)
   end
-  
+
   def stop 
   end
 
