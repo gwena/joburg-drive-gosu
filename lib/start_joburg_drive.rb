@@ -22,6 +22,7 @@ class GameWindow < Gosu::Window
     @player.update
     @viper.update
     @minibus.update
+    self.caption = "#{Gosu.fps} FPS. Loc: [#{@player.x}:#{@player.y}]. Use arrow keys"
   end
 
   def draw
