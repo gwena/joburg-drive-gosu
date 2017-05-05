@@ -13,9 +13,12 @@ class GameWindow < Gosu::Window
   HALF_WIDTH = WIDTH / 2
   HALF_HEIGHT = HEIGHT / 2
 
+  attr_reader :x,  :y
+
   def initialize
     super(WIDTH, HEIGHT, false) # { fullscreen: true } )
     @map = Gosu::Tiled.load_json(self, 'JoburgDriveTmx.json')
+    @x, @y = 0, 0
     @player = PlayerCar.new(self)
     @viper = Viper.new(self)
     @minibus = MinibusTaxi.new(self)
@@ -25,14 +28,16 @@ class GameWindow < Gosu::Window
     @player.update
     @viper.update
     @minibus.update
-    self.caption = "#{Gosu.fps} FPS. Loc: [#{@player.x}:#{@player.y}]. Use arrow keys"
+    @x = @player.x - HALF_WIDTH
+    @y = @player.y - HALF_HEIGHT
+    self.caption = "#{Gosu.fps} FPS. Loc: [#{@x}:#{@y}] [#{@player.x}:#{@player.y}]. Use arrow keys"
   end
 
   def draw
     @player.draw
     @viper.draw
     @minibus.draw
-    @map.draw(@player.x - HALF_HEIGHT, @player.y - HALF_WIDTH)
+    @map.draw(@x, @y)
   end
 
   def button_down(id)
