@@ -28,8 +28,25 @@ class GameWindow < Gosu::Window
     @player.update
     @viper.update
     @minibus.update
-    @x = @player.x - HALF_WIDTH
-    @y = @player.y - HALF_HEIGHT
+
+    @x = case 
+         when @player.x < HALF_WIDTH
+           0
+         when @player.x + HALF_WIDTH > @tiles.width
+           @tiles.width - WIDTH
+         else
+           @player.x - HALF_WIDTH
+         end
+
+    @y = case
+         when @player.y < HALF_HEIGHT
+           0
+         when @player.y + HALF_HEIGHT > @tiles.height
+           @tiles.height - HEIGHT
+         else
+           @player.y - HALF_HEIGHT
+         end
+
     self.caption = "#{Gosu.fps} FPS. Loc: [#{@x}:#{@y}] [#{@player.x}:#{@player.y}]. Use arrow keys"
   end
 
