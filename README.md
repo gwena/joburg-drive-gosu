@@ -1,6 +1,6 @@
 # Jo'burg Drive - Gosu 
 
-Playpen to test Gosu, and go back to write little games after a few decades.
+Playpen to test Gosu, and go back to code little games after a few decades.
 
 Very early skeleton... that might stay as it is!
 
@@ -9,5 +9,8 @@ Very early skeleton... that might stay as it is!
 Install the prerequisites for Gosu
 [github.com/gosu/gosu/wiki](https://github.com/gosu/gosu/wiki)
 
-
+## Graphics & Sounds
+Vehicules Sprites Pack
+* Sujit Yadav / UnluckyStudio
+* http://unluckystudio.com/game-art-giveaway-7-top-down-vehicles-sprites-pack/
 
