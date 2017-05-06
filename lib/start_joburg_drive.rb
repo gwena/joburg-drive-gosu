@@ -17,11 +17,11 @@ class GameWindow < Gosu::Window
 
   def initialize
     super(WIDTH, HEIGHT, false) # { fullscreen: true } )
-    @map = Gosu::Tiled.load_json(self, 'JoburgDriveTmx.json')
+    @tiles = Gosu::Tiled.load_json(self, 'JoburgDriveTmx.json')
     @x, @y = 0, 0
-    @player = PlayerCar.new(self, @map)
-    @viper = Viper.new(self, @map)
-    @minibus = MinibusTaxi.new(self, @map)
+    @player = PlayerCar.new(self, @tiles)
+    @viper = Viper.new(self, @tiles)
+    @minibus = MinibusTaxi.new(self, @tiles)
   end
 
   def update
@@ -37,7 +37,7 @@ class GameWindow < Gosu::Window
     @player.draw
     @viper.draw
     @minibus.draw
-    @map.draw(@x, @y)
+    @tiles.draw(@x, @y)
   end
 
   def button_down(id)

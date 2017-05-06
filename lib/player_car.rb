@@ -1,8 +1,8 @@
 require_relative 'vehicule'
 
 class PlayerCar < Vehicule
-  def initialize(window, map)
-    super(window, map, window.width / 2, window.height / 2, 3, 0, "media/img/cars/Audi.png" )
+  def initialize(window, tiles)
+    super(window, tiles, window.width / 2, window.height / 2, 3, 0, "media/img/cars/Audi.png" )
   end
 
   def update

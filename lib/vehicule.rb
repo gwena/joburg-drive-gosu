@@ -6,9 +6,9 @@ class Vehicule
 
   attr_reader :x, :y
 
-  def initialize(window, map, x, y, speed, target_angle, image_file)
+  def initialize(window, tiles, x, y, speed, target_angle, image_file)
     @window = window
-    @map = map
+    @tiles = tiles
     @x = x
     @y = y
     @speed = speed
