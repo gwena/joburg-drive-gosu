@@ -3,8 +3,8 @@ require_relative 'vehicule'
 class Viper < Vehicule
   ACTIONS = [:left, :right, :up, :down, :stop]
 
-  def initialize(window)
-    super(window, 400, 450, 1, 0, "media/img/cars/Black_viper.png")
+  def initialize(window, map)
+    super(window, map, 400, 450, 1, 0, "media/img/cars/Black_viper.png")
     @current_action = :stop
   end
 

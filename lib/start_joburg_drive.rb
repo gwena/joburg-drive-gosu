@@ -19,9 +19,9 @@ class GameWindow < Gosu::Window
     super(WIDTH, HEIGHT, false) # { fullscreen: true } )
     @map = Gosu::Tiled.load_json(self, 'JoburgDriveTmx.json')
     @x, @y = 0, 0
-    @player = PlayerCar.new(self)
-    @viper = Viper.new(self)
-    @minibus = MinibusTaxi.new(self)
+    @player = PlayerCar.new(self, @map)
+    @viper = Viper.new(self, @map)
+    @minibus = MinibusTaxi.new(self, @map)
   end
 
   def update
