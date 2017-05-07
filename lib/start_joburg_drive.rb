@@ -13,15 +13,15 @@ class GameWindow < Gosu::Window
   HALF_WIDTH = WIDTH / 2
   HALF_HEIGHT = HEIGHT / 2
 
-  attr_reader :x,  :y
+  attr_reader :x,  :y, :tiles
 
   def initialize
     super(WIDTH, HEIGHT, false) # { fullscreen: true } )
     @tiles = Gosu::Tiled.load_json(self, 'JoburgDriveTmx.json')
     @x, @y = 0, 0
-    @player = PlayerCar.new(self, @tiles)
-    @viper = Viper.new(self, @tiles)
-    @minibus = MinibusTaxi.new(self, @tiles)
+    @player = PlayerCar.new(self)
+    @viper = Viper.new(self)
+    @minibus = MinibusTaxi.new(self)
   end
 
   def update
