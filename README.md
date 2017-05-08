@@ -10,7 +10,7 @@ Install the prerequisites for Gosu
 [github.com/gosu/gosu/wiki](https://github.com/gosu/gosu/wiki)
 
 ## Graphics & Sounds
-Vehicules Sprites Pack
+Vehicles Sprites Pack
 * Sujit Yadav / UnluckyStudio
 * http://unluckystudio.com/game-art-giveaway-7-top-down-vehicles-sprites-pack/
 
