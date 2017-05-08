@@ -1,6 +1,6 @@
 require 'gosu'
 
-class Vehicule
+class Vehicle
 
   ANGLE_INCREMENT = 6
 

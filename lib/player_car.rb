@@ -1,6 +1,6 @@
-require_relative 'vehicule'
+require_relative 'vehicle'
 
-class PlayerCar < Vehicule
+class PlayerCar < Vehicle
   def initialize(window)
     super(window, window.width / 2, window.height / 2, 3, 0, "media/img/cars/Audi.png" )
   end

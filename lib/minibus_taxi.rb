@@ -1,8 +1,6 @@
-require_relative 'vehicule'
+require_relative 'autonomous_vehicle'
 
-class MinibusTaxi < Vehicule
-  ACTIONS = [:left, :right, :up, :down, :stop]
-  NB_FRAME_PROBALITY_TO_CHANGE = 200
+class MinibusTaxi < AutonomousVehicle
   MAX_DRIFT = 20
   OFFSET_PER_DRIFT = 0.25
 
@@ -15,10 +13,8 @@ class MinibusTaxi < Vehicule
   end
 
   def update
-    @current_action = ACTIONS[rand(ACTIONS.size)] if rand(NB_FRAME_PROBALITY_TO_CHANGE) == 0
-    send(@current_action)
-    drift
     super
+    drift
   end
 
   def stop
