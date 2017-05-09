@@ -5,6 +5,7 @@ require 'gosu_tiled'
 require_relative 'player_car'
 require_relative 'viper'
 require_relative 'minibus_taxi'
+require_relative 'pickup'
 
 class GameWindow < Gosu::Window
   WIDTH = 1024
@@ -22,12 +23,14 @@ class GameWindow < Gosu::Window
     @player = PlayerCar.new(self)
     @viper = Viper.new(self)
     @minibus = MinibusTaxi.new(self)
+    @pickup = Pickup.new(self)
   end
 
   def update
     @player.update
     @viper.update
     @minibus.update
+    @pickup.update
 
     @x = case 
          when @player.x < HALF_WIDTH
@@ -54,6 +57,7 @@ class GameWindow < Gosu::Window
     @player.draw
     @viper.draw
     @minibus.draw
+    @pickup.draw
     @tiles.draw(@x, @y)
   end
 
