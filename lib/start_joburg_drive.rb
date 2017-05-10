@@ -20,17 +20,17 @@ class GameWindow < Gosu::Window
     super(WIDTH, HEIGHT, false) # { fullscreen: true } )
     @tiles = Gosu::Tiled.load_json(self, 'JoburgDriveTmx.json')
     @x, @y = 0, 0
+
     @player = PlayerCar.new(self)
-    @viper = Viper.new(self)
-    @minibus = MinibusTaxi.new(self)
-    @pickup = Pickup.new(self)
+    @cars = []
+    @cars << @player
+    @cars << Viper.new(self)
+    @cars << MinibusTaxi.new(self)
+    @cars << Pickup.new(self)
   end
 
   def update
-    @player.update
-    @viper.update
-    @minibus.update
-    @pickup.update
+    @cars.map { |car| car.update }
 
     @x = case 
          when @player.x < HALF_WIDTH
@@ -54,10 +54,7 @@ class GameWindow < Gosu::Window
   end
 
   def draw
-    @player.draw
-    @viper.draw
-    @minibus.draw
-    @pickup.draw
+    @cars.map { |car| car.draw }
     @tiles.draw(@x, @y)
   end
 
