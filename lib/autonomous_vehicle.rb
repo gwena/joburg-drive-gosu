@@ -1,7 +1,7 @@
 require_relative 'vehicle'
 
 class AutonomousVehicle < Vehicle
-  ACTIONS = [:left, :right, :up, :down, :stop]
+  ACTIONS = [:right, :down, :left, :up, :stop]
   NB_FRAME_PROBALITY_TO_CHANGE = 200
 
   def update
