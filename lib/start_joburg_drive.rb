@@ -14,7 +14,7 @@ class GameWindow < Gosu::Window
   HALF_WIDTH = WIDTH / 2
   HALF_HEIGHT = HEIGHT / 2
 
-  attr_reader :x,  :y, :tiles
+  attr_reader :x, :y, :tiles
 
   def initialize
     super(WIDTH, HEIGHT, false) # { fullscreen: true } )
@@ -30,31 +30,26 @@ class GameWindow < Gosu::Window
   end
 
   def update
-    @cars.map { |car| car.update }
-
-    @x = case 
-         when @player.x < HALF_WIDTH
-           0
-         when @player.x + HALF_WIDTH > @tiles.width
-           @tiles.width - WIDTH
-         else
-           @player.x - HALF_WIDTH
-         end
-
-    @y = case
-         when @player.y < HALF_HEIGHT
-           0
-         when @player.y + HALF_HEIGHT > @tiles.height
-           @tiles.height - HEIGHT
-         else
-           @player.y - HALF_HEIGHT
-         end
-
+    @cars.map(&:update)
+    @x = calculate_x
+    @y = calculate_y
     self.caption = "#{Gosu.fps} FPS. Loc: [#{@x}:#{@y}] [#{@player.x}:#{@player.y}]. Use arrow keys"
   end
 
+  def calculate_x
+    return 0 if @player.x < HALF_WIDTH
+    return @tiles.width - WIDTH if @player.x + HALF_WIDTH > @tiles.width
+    @player.x - HALF_WIDTH
+  end
+
+  def calculate_y
+    return 0 if @player.y < HALF_HEIGHT
+    return @tiles.height - HEIGHT if @player.y + HALF_HEIGHT > @tiles.height
+    @player.y - HALF_HEIGHT
+  end
+
   def draw
-    @cars.map { |car| car.draw }
+    @cars.map(&:draw)
     @tiles.draw(@x, @y)
   end
 
