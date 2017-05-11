@@ -25,15 +25,14 @@ class MinibusTaxi < AutonomousVehicle
   def drift
     return if @current_action == :stop
     @nb_drift += 1
-    if @nb_drift == MAX_DRIFT then
+    if @nb_drift == MAX_DRIFT
       @nb_drift = 0
       @offset_dir *= -1
     end
-    if @target_angle == 0 || @target_angle == 180
+    if @target_angle.zero? || @target_angle == 180
       @x += @offset_dir
     else
       @y += @offset_dir
     end
   end
 end
-
