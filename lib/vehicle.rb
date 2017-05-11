@@ -1,7 +1,6 @@
 require 'gosu'
 
 class Vehicle
-
   ANGLE_INCREMENT = 6
 
   attr_reader :x, :y
@@ -38,11 +37,10 @@ class Vehicle
     turn(180)
   end
 
-  def stop 
-  end
+  def stop; end
 
   def turn(new_angle)
-    if @target_angle != new_angle then
+    if @target_angle != new_angle
       @target_angle = new_angle
       rotation_direction
     end
@@ -50,17 +48,17 @@ class Vehicle
 
   def rotation_direction
     angle = @target_angle - @transition_angle
-    if (angle <= -180) || (angle >= 0 && angle < 180) then
-      @angle_increment = ANGLE_INCREMENT
-    else
-      @angle_increment = -ANGLE_INCREMENT
-    end
+    @angle_increment = if (angle <= -180) || (angle >= 0 && angle < 180)
+                         ANGLE_INCREMENT
+                       else
+                         -ANGLE_INCREMENT
+                       end
   end
 
   def update
-    if @target_angle != @transition_angle then
-      @transition_angle += @angle_increment 
-      @transition_angle = @target_angle if @transition_angle % 360  == @target_angle
+    if @target_angle != @transition_angle
+      @transition_angle += @angle_increment
+      @transition_angle = @target_angle if @transition_angle % 360 == @target_angle
     end
   end
 
