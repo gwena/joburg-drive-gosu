@@ -15,14 +15,16 @@ class AutonomousVehicle < Vehicle
   end
 
   def stay_inside
-    @dir = other_dir(:up) if @dir.eql?(:up) && @y < PADDING
-    @dir = other_dir(:left) if @dir.eql?(:left) && @x < PADDING
-    @dir = other_dir(:down) if @dir.eql?(:down) && @y + PADDING > @window.y
-    @dir = other_dir(:right) if @dir.eql?(:right) && @x + PADDING > @window.x
+    avoid_boundary(:up) if @y < PADDING
+    avoid_boundary(:left) if @x < PADDING
+    avoid_boundary(:down) if @y + PADDING > @window.y
+    avoid_boundary(:right) if @x + PADDING > @window.x
   end
 
-  def other_dir(exclude)
-    options = DIRS.reject { |d| d == exclude }
-    options[rand(options.size)]
+  def avoid_boundary(dir)
+    return unless @dir.eql?(dir)
+
+    options = DIRS.reject { |d| d == dir }
+    @dir = options[rand(options.size)]
   end
 end
