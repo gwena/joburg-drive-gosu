@@ -5,8 +5,8 @@ class AutonomousVehicle < Vehicle
   AVERAGE_FRAME_B4_CHANGE = 200
 
   def update
-    @current_action = ACTIONS[rand(ACTIONS.size)] if rand(AVERAGE_FRAME_B4_CHANGE).zero?
-    send(@current_action)
+    @dir = ACTIONS[rand(ACTIONS.size)] if rand(AVERAGE_FRAME_B4_CHANGE).zero?
+    send(@dir)
     super
   end
 end
