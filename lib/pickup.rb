@@ -9,9 +9,9 @@ class Pickup < AutonomousVehicle
   end
 
   def update
-    next_index = 1 + ACTIONS.index(@dir)
-    next_index = 0 if next_index == ACTIONS.size
-    @dir = ACTIONS[next_index] if rand(AVERAGE_FRAME_B4_TURNING).zero?
+    next_index = 1 + DIRS.index(@dir)
+    next_index = 0 if next_index == DIRS.size
+    @dir = DIRS[next_index] if rand(AVERAGE_FRAME_B4_TURNING).zero?
     send(@dir)
     super
   end
