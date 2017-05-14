@@ -19,8 +19,8 @@ class AutonomousVehicle < Vehicle
   def stay_inside
     avoid_boundary(:up) if @y < PADDING
     avoid_boundary(:left) if @x < PADDING
-    avoid_boundary(:down) if @y + PADDING > @window.y
-    avoid_boundary(:right) if @x + PADDING > @window.x
+    avoid_boundary(:down) if @y > @window.y - PADDING
+    avoid_boundary(:right) if @x > @window.x - PADDING
   end
 
   def avoid_boundary(dir)
