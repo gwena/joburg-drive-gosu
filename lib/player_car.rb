@@ -3,7 +3,7 @@ require_relative 'vehicle'
 # The player's car driven with the keyboard
 class PlayerCar < Vehicle
   def initialize(window)
-    super(window, window.width / 2, window.height / 2, 3, 0)
+    super(window, window.width / 2, window.height / 2, 3)
   end
 
   def image

@@ -3,7 +3,7 @@ require_relative 'autonomous_vehicle'
 # Fast autonomous car
 class Viper < AutonomousVehicle
   def initialize(window)
-    super(window, 400, 450, 3, 0)
+    super(window, 400, 450, 3)
     @dir = :stop
   end
 

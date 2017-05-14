@@ -5,7 +5,7 @@ class Pickup < AutonomousVehicle
   AVERAGE_FRAME_B4_TURNING = 60
 
   def initialize(window)
-    super(window, 100, 150, 1, 0)
+    super(window, 100, 150, 1)
     @dir = :stop
   end
 
