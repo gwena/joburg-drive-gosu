@@ -17,16 +17,11 @@ class AutonomousVehicle < Vehicle
   end
 
   def stay_inside
-    avoid_boundary(:up) if @y < PADDING
-    avoid_boundary(:left) if @x < PADDING
-    avoid_boundary(:down) if @y > @window.y - PADDING
-    avoid_boundary(:right) if @x > @window.x - PADDING
-  end
-
-  def avoid_boundary(dir)
-    return unless @dir.eql?(dir)
-
-    options = DIRS.reject { |d| d == dir }
-    @dir = options[rand(options.size)]
+    valid_dirs = [:stop]
+    valid_dirs << :up if @y > PADDING
+    valid_dirs << :left if @x > PADDING
+    valid_dirs << :down if @y < @window.height - PADDING
+    valid_dirs << :right if @x < @window.width - PADDING
+    @dir = valid_dirs[rand(valid_dirs.size)] if valid_dirs.size != DIRS.size
   end
 end
