@@ -5,8 +5,12 @@ class Pickup < AutonomousVehicle
   AVERAGE_FRAME_B4_TURNING = 60
 
   def initialize(window)
-    super(window, 100, 150, 1, 0, 'media/img/cars/Pickup.png')
+    super(window, 100, 150, 1, 0)
     @dir = :stop
+  end
+
+  def image
+    'Pickup.png'
   end
 
   def update
