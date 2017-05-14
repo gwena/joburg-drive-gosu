@@ -7,6 +7,7 @@ require_relative 'viper'
 require_relative 'minibus_taxi'
 require_relative 'pickup'
 
+# Main window and game loop
 class GameWindow < Gosu::Window
   WIDTH = 1024
   HEIGHT = 800

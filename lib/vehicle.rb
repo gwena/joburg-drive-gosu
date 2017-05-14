@@ -1,5 +1,6 @@
 require 'gosu'
 
+# Superclass for all the Vehicle types
 class Vehicle
   ANGLE_INCREMENT = 6
 

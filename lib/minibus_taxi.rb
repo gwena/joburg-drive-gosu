@@ -1,5 +1,6 @@
 require_relative 'autonomous_vehicle'
 
+# South African taxi with heratic behavior and drifting on the road
 class MinibusTaxi < AutonomousVehicle
   MAX_DRIFT = 20
   OFFSET_PER_DRIFT = 0.25

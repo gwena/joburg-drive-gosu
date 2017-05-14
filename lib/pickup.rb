@@ -1,5 +1,6 @@
 require_relative 'autonomous_vehicle'
 
+# The South African Pickup called Bakkie
 class Pickup < AutonomousVehicle
   AVERAGE_FRAME_B4_TURNING = 60
 

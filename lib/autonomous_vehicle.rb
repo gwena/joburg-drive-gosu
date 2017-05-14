@@ -1,5 +1,7 @@
 require_relative 'vehicle'
 
+# Superclass for all the autonomous vehicles
+# Basic random intelligence is implemented
 class AutonomousVehicle < Vehicle
   DIRS_NO_STOP = %i[right down left up].freeze
   DIRS = [*DIRS_NO_STOP, :stop].freeze
