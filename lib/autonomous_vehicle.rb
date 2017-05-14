@@ -10,7 +10,7 @@ class AutonomousVehicle < Vehicle
   AVERAGE_FRAME_B4_CHANGE = 200
 
   def update
-    @dir = DIRS[rand(DIRS.size)] if rand(AVERAGE_FRAME_B4_CHANGE).zero?
+    # Implement in the subclass the specifics and call super
     stay_inside
     send(@dir)
     super

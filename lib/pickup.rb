@@ -17,7 +17,6 @@ class Pickup < AutonomousVehicle
     next_index = 1 + DIRS.index(@dir)
     next_index = 0 if next_index == DIRS.size
     @dir = DIRS[next_index] if rand(AVERAGE_FRAME_B4_TURNING).zero?
-    send(@dir)
     super
   end
 end
