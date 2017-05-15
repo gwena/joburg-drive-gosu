@@ -17,11 +17,16 @@ class AutonomousVehicle < Vehicle
   end
 
   def stay_inside
+    valid_dirs = valid_directions
+    @dir = valid_dirs[rand(valid_dirs.size)] if valid_dirs.size != DIRS.size
+  end
+
+  def valid_directions
     valid_dirs = [:stop]
     valid_dirs << :up if @y > PADDING
     valid_dirs << :left if @x > PADDING
     valid_dirs << :down if @y < @window.height - PADDING
     valid_dirs << :right if @x < @window.width - PADDING
-    @dir = valid_dirs[rand(valid_dirs.size)] if valid_dirs.size != DIRS.size
+    valid_dirs
   end
 end
