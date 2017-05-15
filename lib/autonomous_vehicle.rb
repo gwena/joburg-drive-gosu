@@ -6,7 +6,6 @@ class AutonomousVehicle < Vehicle
   DIRS_NO_STOP = %i[right down left up].freeze
   DIRS = [*DIRS_NO_STOP, :stop].freeze
 
-  PADDING = 25
   AVERAGE_FRAME_B4_CHANGE = 200
 
   def update
@@ -25,8 +24,8 @@ class AutonomousVehicle < Vehicle
     valid_dirs = [:stop]
     valid_dirs << :up if @y > PADDING
     valid_dirs << :left if @x > PADDING
-    valid_dirs << :down if @y < @window.height - PADDING
-    valid_dirs << :right if @x < @window.width - PADDING
+    valid_dirs << :down if @y < @tiles.height - PADDING
+    valid_dirs << :right if @x < @tiles.width - PADDING
     valid_dirs
   end
 end
