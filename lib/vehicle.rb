@@ -11,7 +11,6 @@ class Vehicle
     @tiles = window.tiles
     @x = x
     @y = y
-    @speed = speed
     @target_angle = 0
     @transition_angle = @target_angle
     @angle_increment = ANGLE_INCREMENT
@@ -23,22 +22,22 @@ class Vehicle
   end
 
   def left
-    @x -= @speed
+    @x -= speed
     turn(270)
   end
 
   def right
-    @x += @speed
+    @x += speed
     turn(90)
   end
 
   def up
-    @y -= @speed
+    @y -= speed
     turn(0)
   end
 
   def down
-    @y += @speed
+    @y += speed
     turn(180)
   end
 
