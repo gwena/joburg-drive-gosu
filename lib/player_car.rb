@@ -15,10 +15,10 @@ class PlayerCar < Vehicle
   end
 
   def update
-    left if @window.button_down?(Gosu::KbLeft)
-    right if @window.button_down?(Gosu::KbRight)
-    up if @window.button_down?(Gosu::KbUp)
-    down if @window.button_down?(Gosu::KbDown)
+    up if @window.button_down?(Gosu::KbUp) && @y > PADDING
+    left if @window.button_down?(Gosu::KbLeft) && @x > PADDING
+    down if @window.button_down?(Gosu::KbDown) && @y < @tiles.height - PADDING
+    right if @window.button_down?(Gosu::KbRight) && @x < @tiles.width - PADDING
     super
   end
 end

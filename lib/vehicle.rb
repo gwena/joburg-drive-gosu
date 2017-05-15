@@ -3,6 +3,7 @@ require 'gosu'
 # Superclass for all the Vehicle types
 class Vehicle
   ANGLE_INCREMENT = 6
+  PADDING = 25
 
   attr_reader :x, :y
 
