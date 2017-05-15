@@ -20,7 +20,8 @@ class GameWindow < Gosu::Window
   def initialize
     super(WIDTH, HEIGHT, false) # { fullscreen: true } )
     @tiles = Gosu::Tiled.load_json(self, 'JoburgDriveTmx.json')
-    @x, @y = 0, 0
+    @x = 0
+    @y = 0
 
     @player = PlayerCar.new(self)
     @cars = []
