@@ -6,7 +6,7 @@ class Vehicle
 
   attr_reader :x, :y
 
-  def initialize(window, x, y, speed)
+  def initialize(window, x, y)
     @window = window
     @tiles = window.tiles
     @x = x
@@ -16,6 +16,10 @@ class Vehicle
     @transition_angle = @target_angle
     @angle_increment = ANGLE_INCREMENT
     @image = Gosu::Image.new("media/img/cars/#{image}")
+  end
+
+  def speed
+    1
   end
 
   def left
