@@ -29,6 +29,8 @@ class GameWindow < Gosu::Window
     @cars << Viper.new(self)
     @cars << MinibusTaxi.new(self)
     @cars << Pickup.new(self)
+
+    @pothole =  Gosu::Image.new('media/img/icon/Pothole.png') 
   end
 
   def update
@@ -53,6 +55,7 @@ class GameWindow < Gosu::Window
   def draw
     @cars.map(&:draw)
     @tiles.draw(@x, @y)
+    @pothole.draw(5, 5, 1)
   end
 
   def button_down(id)
