@@ -7,7 +7,7 @@ class MinibusTaxi < AutonomousVehicle
 
   def initialize(window)
     super(window, 500, 450)
-    @stop_sound = Gosu::Sample.new('media/sound/carscreech.wav')
+    @breaking_sound = Gosu::Sample.new('media/sound/carscreech.wav')
     @dir = :stop
     @nb_drift = 0
     @offset_dir = OFFSET_PER_DRIFT
@@ -28,7 +28,7 @@ class MinibusTaxi < AutonomousVehicle
   end
 
   def stop
-    @stop_sound.play
+    @breaking_sound.play(0.03,7)
     super
   end
 
