@@ -7,7 +7,7 @@ class MinibusTaxi < AutonomousVehicle
 
   def initialize(window)
     super(window, 500, 450)
-    @stop_sound = Gosu::Sample.new(window, 'media/sound/carscreech.wav')
+    @stop_sound = Gosu::Sample.new('media/sound/carscreech.wav')
     @dir = :stop
     @nb_drift = 0
     @offset_dir = OFFSET_PER_DRIFT
