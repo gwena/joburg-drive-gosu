@@ -7,7 +7,7 @@ class PlayerCar < Vehicle
   end
 
   def image
-    'Audi.png'
+    'Trashmaster.png'
   end
 
   def speed
