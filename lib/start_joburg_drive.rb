@@ -6,6 +6,7 @@ require_relative 'player_car'
 require_relative 'viper'
 require_relative 'minibus_taxi'
 require_relative 'pickup'
+require_relative 'binbag'
 
 # Main window and game loop
 class GameWindow < Gosu::Window
@@ -30,11 +31,16 @@ class GameWindow < Gosu::Window
     @cars << MinibusTaxi.new(self)
     @cars << Pickup.new(self)
 
+    @waste = []
+
     @pothole = Gosu::Image.new('media/img/icon/Pothole.png')
   end
 
   def update
+    @waste << Binbag.new(self, @x + rand(WIDTH), @y + rand(HEIGHT)) if rand(300).zero?
+
     @cars.map(&:update)
+    @waste.map(&:update)
     @x = calculate_x
     @y = calculate_y
     self.caption = "#{Gosu.fps} FPS. Loc: [#{@x}:#{@y}] [#{@player.x}:#{@player.y}]. Use arrow keys"
@@ -54,6 +60,7 @@ class GameWindow < Gosu::Window
 
   def draw
     @cars.map(&:draw)
+    @waste.map(&:draw)
     @tiles.draw(@x, @y)
     @pothole.draw(5, 5, 1)
   end
