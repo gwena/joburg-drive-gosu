@@ -8,10 +8,8 @@ class Vehicle
   attr_reader :x, :y
 
   def initialize(window, x, y)
-    @window = window
+    @window, @x, @y = window, x, y
     @tiles = window.tiles
-    @x = x
-    @y = y
     @target_angle = 0
     @transition_angle = @target_angle
     @angle_increment = ANGLE_INCREMENT
