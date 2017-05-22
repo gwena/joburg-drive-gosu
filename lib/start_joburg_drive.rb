@@ -30,7 +30,7 @@ class GameWindow < Gosu::Window
     @cars << MinibusTaxi.new(self)
     @cars << Pickup.new(self)
 
-    @pothole =  Gosu::Image.new('media/img/icon/Pothole.png') 
+    @pothole = Gosu::Image.new('media/img/icon/Pothole.png')
   end
 
   def update
