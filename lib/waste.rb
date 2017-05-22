@@ -5,14 +5,12 @@ class Waste
   attr_reader :x, :y
 
   def initialize(window, x, y)
-    @window = window
-    @x = x
-    @y = y
+    @window, @x, @y = window, x, y
     @image = Gosu::Image.new("media/img/waste/#{image}")
   end
 
   def update
-    raise NotImplementedError, "update() needs to be implemented in the Waste subclasses"
+    raise NotImplementedError, 'update() needs to be implemented in the Waste subclasses'
   end
 
   def draw
