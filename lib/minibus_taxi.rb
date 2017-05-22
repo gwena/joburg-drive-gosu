@@ -28,7 +28,7 @@ class MinibusTaxi < AutonomousVehicle
   end
 
   def stop
-    @breaking_sound.play(0.03,7)
+    @breaking_sound.play(0.03, 7)
     super
   end
 
