@@ -7,7 +7,7 @@ class Binbag < Waste
   end
 
   def image
-    'Binbags-Cycle-1.png'
+    'Binbags-State-1.png'
   end
 
   def update
