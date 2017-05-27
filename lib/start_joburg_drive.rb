@@ -37,15 +37,17 @@ class GameWindow < Gosu::Window
   end
 
   def update
-    @waste << Binbag.new(self, @x + rand(WIDTH), @y + rand(HEIGHT)) if rand(300).zero?
-
     @cars.map(&:update)
-    @waste.map(&:update)
-    @waste.reject!(&:vanished?)
-    # puts @waste.inspect
     @x = calculate_x
     @y = calculate_y
+    waste_management
     self.caption = "#{Gosu.fps} FPS. Loc: [#{@x}:#{@y}] [#{@player.x}:#{@player.y}]. Use arrow keys"
+  end
+
+  def waste_management
+    @waste << Binbag.new(self, @x + rand(WIDTH), @y + rand(HEIGHT)) if rand(300).zero?
+    @waste.map(&:update)
+    @waste.reject!(&:vanished?)
   end
 
   def calculate_x
