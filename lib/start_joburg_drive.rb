@@ -33,6 +33,7 @@ class GameWindow < Gosu::Window
 
     @waste = []
 
+    @scores_background = Gosu::Image.new('media/img/icon/Scores-Background.png')
     @pothole = Gosu::Image.new('media/img/icon/Pothole.png')
   end
 
@@ -66,6 +67,7 @@ class GameWindow < Gosu::Window
     @cars.map(&:draw)
     @waste.map(&:draw)
     @tiles.draw(@x, @y)
+    @scores_background.draw(3, 3, 1)
     @pothole.draw(5, 5, 1)
   end
 
