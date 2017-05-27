@@ -35,6 +35,7 @@ class GameWindow < Gosu::Window
 
     @waste = []
 
+    @font = Gosu::Font.new(20)
     @board = Gosu::Image.new('media/img/icon/Scores-Background.png')
     @pothole = Gosu::Image.new('media/img/icon/Pothole.png')
   end
@@ -69,13 +70,14 @@ class GameWindow < Gosu::Window
     @cars.map(&:draw)
     @waste.map(&:draw)
     @tiles.draw(@x, @y)
-    @pothole.draw(5, 5, 1)
     draw_scores
   end
 
   def draw_scores
     pos_x = @player.x > 400 || @player.y > 250 ? OFFSET_BOARD : WIDTH - OFFSET_BOARD - @board.width
     @board.draw(pos_x, OFFSET_BOARD, 1)
+    @font.draw(@waste.size, pos_x + 10, OFFSET_BOARD + 5, 1)
+    @pothole.draw(pos_x + 100, 5, 1)
   end
 
   def button_down(id)
