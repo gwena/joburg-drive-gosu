@@ -19,7 +19,11 @@ class Waste
   end
 
   def vanished?
-    @nb_tick / nb_tick_in_state >= states.last
+    state >= states.last
+  end
+
+  def state
+    @nb_tick / nb_tick_in_state
   end
 
   def states
