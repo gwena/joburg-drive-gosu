@@ -35,7 +35,7 @@ class GameWindow < Gosu::Window
 
     @waste = []
 
-    @font = Gosu::Font.new(20)
+    @font = Gosu::Font.new(40)
     @board = Gosu::Image.new('media/img/icon/Scores-Background.png')
     @pothole = Gosu::Image.new('media/img/icon/Pothole.png')
   end
