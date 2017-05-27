@@ -8,7 +8,7 @@ class Viper < AutonomousVehicle
   end
 
   def image
-    'Black_viper.png'
+    'BlackViper.png'
   end
 
   def speed
