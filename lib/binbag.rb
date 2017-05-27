@@ -11,7 +11,7 @@ class Binbag < Waste
   end
 
   def states
-    1..2
+    1..4
   end
 
   def nb_tick_in_state
