@@ -41,6 +41,8 @@ class GameWindow < Gosu::Window
 
     @cars.map(&:update)
     @waste.map(&:update)
+    @waste.reject!(&:vanished?)
+    # puts @waste.inspect
     @x = calculate_x
     @y = calculate_y
     self.caption = "#{Gosu.fps} FPS. Loc: [#{@x}:#{@y}] [#{@player.x}:#{@player.y}]. Use arrow keys"

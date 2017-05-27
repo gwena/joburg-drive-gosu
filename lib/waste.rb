@@ -7,13 +7,26 @@ class Waste
   def initialize(window, x, y)
     @window, @x, @y = window, x, y
     @image = Gosu::Image.new("media/img/waste/#{image}")
+    @nb_tick = 0
   end
 
   def update
-    raise NotImplementedError, 'update() needs to be implemented in the Waste subclasses'
+    @nb_tick += 1
   end
 
   def draw
     @image.draw_rot(@x - @window.x, @y - @window.y, 1, 0)
+  end
+
+  def vanished?
+    @nb_tick / nb_tick_in_state >= states.last
+  end
+
+  def states
+    1..1
+  end
+
+  def nb_tick_in_state
+    raise NotImplementedError 'Needs to be implemented in the Waste subclasses'
   end
 end

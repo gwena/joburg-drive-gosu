@@ -10,7 +10,11 @@ class Binbag < Waste
     'Binbags-State-1.png'
   end
 
-  def update
-    # in fact have might have nothing here!
+  def states
+    1..1 # @TODO to change after
+  end
+
+  def nb_tick_in_state
+    60 * 1
   end
 end
