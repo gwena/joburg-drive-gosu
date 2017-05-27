@@ -6,15 +6,15 @@ class Binbag < Waste
     super(window, x, y)
   end
 
-  def image
-    'Binbags-State-1.png'
+  def image(index)
+    "Binbags-State-#{index}.png"
   end
 
   def states
-    1..1 # @TODO to change after
+    1..2
   end
 
   def nb_tick_in_state
-    60 * 1
+    60 * 2
   end
 end

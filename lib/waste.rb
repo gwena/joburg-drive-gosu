@@ -6,8 +6,15 @@ class Waste
 
   def initialize(window, x, y)
     @window, @x, @y = window, x, y
-    @image = Gosu::Image.new("media/img/waste/#{image}")
     @nb_tick = 0
+    load_images
+  end
+
+  def load_images
+    @images = []
+    states.each_with_index do |i|
+      @images << Gosu::Image.new("media/img/waste/#{image(i)}")
+    end
   end
 
   def update
@@ -15,7 +22,7 @@ class Waste
   end
 
   def draw
-    @image.draw_rot(@x - @window.x, @y - @window.y, 1, 0)
+    @images[state].draw_rot(@x - @window.x, @y - @window.y, 1, 0)
   end
 
   def vanished?
