@@ -6,6 +6,7 @@ require_relative 'player_car'
 require_relative 'viper'
 require_relative 'minibus_taxi'
 require_relative 'pickup'
+require_relative 'police'
 require_relative 'binbag'
 
 # Main window and game loop
@@ -32,7 +33,7 @@ class GameWindow < Gosu::Window
     @cars << Viper.new(self)
     @cars << MinibusTaxi.new(self)
     @cars << Pickup.new(self)
-
+    @cars << Police.new(self)
     @waste = []
 
     @font = Gosu::Font.new(40)
@@ -77,6 +78,7 @@ class GameWindow < Gosu::Window
     pos_x = @player.x > 400 || @player.y > 250 ? OFFSET_BOARD : WIDTH - OFFSET_BOARD - @board.width
     @board.draw(pos_x, OFFSET_BOARD, 1)
     @font.draw(@waste.size, pos_x + 10, OFFSET_BOARD + 5, 1)
+
     @pothole.draw(pos_x + 100, 5, 1)
   end
 
