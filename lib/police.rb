@@ -8,7 +8,7 @@ class Police < AutonomousVehicle
   end
 
   def image
-    'Police.png'
+    'Police-State-1.png'
   end
 
   def speed
