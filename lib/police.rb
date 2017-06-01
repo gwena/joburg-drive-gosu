@@ -5,10 +5,23 @@ class Police < AutonomousVehicle
   def initialize(window)
     super(window, 100, 150)
     @dir = :stop
+    load_images
+    @image = @images[0]
   end
 
-  def image
-    'Police-State-1.png'
+  def image(index)
+    "Police-State-#{index}.png"
+  end
+
+  def load_images
+    @images = []
+    states.each_with_index do |i|
+      @images << Gosu::Image.new("media/img/cars/#{image(i)}")
+    end
+  end
+
+  def states
+    1..1
   end
 
   def speed

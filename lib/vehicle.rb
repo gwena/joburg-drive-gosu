@@ -13,7 +13,7 @@ class Vehicle
     @target_angle = 0
     @transition_angle = @target_angle
     @angle_increment = ANGLE_INCREMENT
-    @image = Gosu::Image.new("media/img/cars/#{image}")
+    @image = Gosu::Image.new("media/img/cars/#{image}") unless self.respond_to?(:states)
   end
 
   def speed
