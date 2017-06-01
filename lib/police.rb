@@ -7,6 +7,7 @@ class Police < AutonomousVehicle
     @dir = :stop
     load_images
     @image = @images[0]
+    @nb_tick = 0
   end
 
   def image(index)
@@ -21,7 +22,7 @@ class Police < AutonomousVehicle
   end
 
   def states
-    1..1
+    1..3
   end
 
   def speed
@@ -30,6 +31,8 @@ class Police < AutonomousVehicle
 
   def update
     @dir = DIRS[rand(DIRS.size)] if rand(AVERAGE_FRAME_B4_CHANGE).zero?
+    @nb_tick += 1
+    @image = @images[(@nb_tick / 20) % states.size]
     super
   end
 end
