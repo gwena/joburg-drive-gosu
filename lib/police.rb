@@ -29,7 +29,7 @@ class Police < AutonomousVehicle
   def update
     @dir = DIRS[rand(DIRS.size)] if rand(AVERAGE_FRAME_B4_CHANGE).zero?
     @nb_tick += 1
-    @image = @images[(@nb_tick / 20) % STATES.size]
+    @image = @images[(@nb_tick / 15) % STATES.size]
     super
   end
 end
