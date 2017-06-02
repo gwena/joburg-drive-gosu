@@ -4,6 +4,7 @@ require 'gosu'
 class Vehicle
   ANGLE_INCREMENT = 6
   PADDING = 25
+  CARS = 'media/img/cars/'
 
   attr_reader :x, :y
 
@@ -17,7 +18,7 @@ class Vehicle
   end
 
   def load_images
-    @image = Gosu::Image.new("media/img/cars/#{image}")
+    @image = Gosu::Image.new(CARS + image)
   end
 
   def speed

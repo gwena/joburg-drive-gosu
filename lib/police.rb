@@ -18,7 +18,7 @@ class Police < AutonomousVehicle
   def load_images
     @images = []
     STATES.each_with_index do |i|
-      @images << Gosu::Image.new("media/img/cars/#{image(i)}")
+      @images << Gosu::Image.new(CARS + image(i))
     end
   end
 
