@@ -19,7 +19,7 @@ class GameWindow < Gosu::Window
 
   OFFSET_BOARD = 4
 
-  attr_reader :x, :y, :tiles
+  attr_reader :x, :y, :tiles, :player
 
   def initialize
     super(WIDTH, HEIGHT, false) # { fullscreen: true } )

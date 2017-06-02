@@ -9,6 +9,7 @@ class Police < AutonomousVehicle
     @dir = :stop
     @image = @images[0]
     @nb_tick = 0
+    @follow = window.player
   end
 
   def image(index)
@@ -27,9 +28,18 @@ class Police < AutonomousVehicle
   end
 
   def update
-    @dir = DIRS[rand(DIRS.size)] if rand(AVERAGE_FRAME_B4_CHANGE).zero?
+    follow_player
     @nb_tick += 1
     @image = @images[(@nb_tick / 15) % STATES.size]
     super
+  end
+
+  def follow_player
+    @dir = DIRS[rand(DIRS.size)] if rand(AVERAGE_FRAME_B4_CHANGE).zero?
+    return unless rand(AVERAGE_FRAME_B4_CHANGE).zero?
+    @dir = :up if @y > @follow.y
+    @dir = :down if @y < @follow.y
+    @dir = :left if @x > @follow.x
+    @dir = :right if @x < @follow.x
   end
 end
