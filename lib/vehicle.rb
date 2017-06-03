@@ -48,10 +48,9 @@ class Vehicle
   def stop; end
 
   def turn(new_angle)
-    if @target_angle != new_angle
-      @target_angle = new_angle
-      rotation_direction
-    end
+    return if @target_angle == new_angle
+    @target_angle = new_angle
+    rotation_direction
   end
 
   def rotation_direction
