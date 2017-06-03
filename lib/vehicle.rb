@@ -64,10 +64,9 @@ class Vehicle
   end
 
   def update
-    if @target_angle != @transition_angle
-      @transition_angle += @angle_increment
-      @transition_angle = @target_angle if @transition_angle % 360 == @target_angle
-    end
+    return if @target_angle == @transition_angle
+    @transition_angle += @angle_increment
+    @transition_angle = @target_angle if @transition_angle % 360 == @target_angle
   end
 
   def draw
