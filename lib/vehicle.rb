@@ -4,7 +4,7 @@ require 'gosu'
 class Vehicle
   ANGLE_INCREMENT = 6
   PADDING = 25
-  CARS = 'media/img/cars/'
+  CARS = 'media/img/cars/'.freeze
 
   attr_reader :x, :y
 
