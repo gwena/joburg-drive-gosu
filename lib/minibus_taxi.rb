@@ -3,6 +3,7 @@ require_relative 'autonomous_vehicle'
 # South African taxi with heratic behavior and drifting on the road
 class MinibusTaxi < AutonomousVehicle
   MAX_DRIFT = 20
+  MAX_DRIFT_STOPPED = 10
   OFFSET_PER_DRIFT = 0.25
 
   def initialize(window)
@@ -34,7 +35,7 @@ class MinibusTaxi < AutonomousVehicle
 
   def drift
     @nb_drift += 1
-    if @nb_drift == MAX_DRIFT
+    if @nb_drift >= (@dir == :stop ? MAX_DRIFT_STOPPED : MAX_DRIFT)
       @nb_drift = 0
       @offset_dir *= -1
     end
