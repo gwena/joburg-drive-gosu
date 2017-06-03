@@ -33,7 +33,6 @@ class MinibusTaxi < AutonomousVehicle
   end
 
   def drift
-    return if @dir == :stop
     @nb_drift += 1
     if @nb_drift == MAX_DRIFT
       @nb_drift = 0
