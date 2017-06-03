@@ -5,7 +5,7 @@ class Police < AutonomousVehicle
   STATES = 1..3
 
   def initialize(window)
-    super(window, 100, 150)
+    super(window, window.width - 50, window.height - 50)
     @dir = :stop
     @image = @images[0]
     @nb_tick = 0
