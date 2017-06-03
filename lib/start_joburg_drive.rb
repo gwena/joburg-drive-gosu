@@ -24,18 +24,24 @@ class GameWindow < Gosu::Window
   def initialize
     super(WIDTH, HEIGHT, false) # { fullscreen: true } )
     @tiles = Gosu::Tiled.load_json(self, 'JoburgDriveTmx.json')
-    @x = 0
-    @y = 0
+    @x, @y = 0, 0
 
     @player = PlayerCar.new(self)
+    @waste = []
+    init_autonomous_cars
+    init_board
+  end
+
+  def init_autonomous_cars
     @cars = []
     @cars << @player
     @cars << Viper.new(self)
     @cars << MinibusTaxi.new(self)
     @cars << Pickup.new(self)
     @cars << Police.new(self)
-    @waste = []
+  end
 
+  def init_board
     @font = Gosu::Font.new(40)
     @board = Gosu::Image.new('media/img/icon/Scores-Background.png')
     @pothole = Gosu::Image.new('media/img/icon/Pothole.png')
