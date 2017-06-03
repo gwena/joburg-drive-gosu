@@ -8,6 +8,18 @@ class AutonomousVehicle < Vehicle
 
   AVERAGE_FRAME_B4_CHANGE = 200
 
+  def change_dir?
+    rand(AVERAGE_FRAME_B4_CHANGE).zero?
+  end
+
+  def random_dir
+    DIRS[rand(DIRS.size)]
+  end
+
+  def maybe_change_dir
+    @dir = random_dir if change_dir?
+  end
+
   def update
     # Implement in the subclass the specifics and call super
     stay_inside

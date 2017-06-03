@@ -23,7 +23,7 @@ class MinibusTaxi < AutonomousVehicle
   end
 
   def update
-    @dir = DIRS[rand(DIRS.size)] if rand(AVERAGE_FRAME_B4_CHANGE).zero?
+    maybe_change_dir
     super
     drift
   end
