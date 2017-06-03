@@ -14,9 +14,11 @@ class Pickup < AutonomousVehicle
   end
 
   def update
-    next_index = 1 + DIRS.index(@dir)
-    next_index = 0 if next_index == DIRS.size
-    @dir = DIRS[next_index] if turn?
+    if turn?
+      next_index = 1 + DIRS.index(@dir)
+      next_index = 0 if next_index == DIRS.size
+      @dir = DIRS[next_index]
+    end
     super
   end
 
