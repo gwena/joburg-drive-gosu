@@ -36,11 +36,14 @@ class Police < AutonomousVehicle
 
   def follow_player
     maybe_change_dir
-    return unless follow_me?
-    @dir = :up if @y > @follow.y
-    @dir = :down if @y < @follow.y
-    @dir = :left if @x > @follow.x
-    @dir = :right if @x < @follow.x
+    if follow_me?
+      @dir = :up if @y > @follow.y
+      @dir = :down if @y < @follow.y
+    end
+    if follow_me?
+      @dir = :left if @x > @follow.x
+      @dir = :right if @x < @follow.x
+    end
   end
 
   def follow_me?
