@@ -35,7 +35,7 @@ class Police < AutonomousVehicle
   end
 
   def follow_player
-    @dir = DIRS[rand(DIRS.size)] if rand(AVERAGE_FRAME_B4_CHANGE).zero?
+    maybe_change_dir
     return unless rand(AVERAGE_FRAME_B4_CHANGE / 2).zero?
     @dir = :up if @y > @follow.y
     @dir = :down if @y < @follow.y
