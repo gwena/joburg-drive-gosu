@@ -28,25 +28,25 @@ class Police < AutonomousVehicle
   end
 
   def update
-    follow_player
+    maybe_change_dir
+    follow_on_y if follow_player?
+    follow_on_x if follow_player?
     @nb_tick += 1
     @image = @images[(@nb_tick / 15) % STATES.size]
     super
   end
 
-  def follow_player
-    maybe_change_dir
-    if follow_me?
-      @dir = :up if @y > @follow.y
-      @dir = :down if @y < @follow.y
-    end
-    if follow_me?
-      @dir = :left if @x > @follow.x
-      @dir = :right if @x < @follow.x
-    end
+  def follow_on_y
+    @dir = :left if @x > @follow.x
+    @dir = :right if @x < @follow.x
   end
 
-  def follow_me?
+  def follow_on_x
+    @dir = :up if @y > @follow.y
+    @dir = :down if @y < @follow.y
+  end
+
+  def follow_player?
     rand(AVERAGE_FRAME_B4_CHANGE / 2).zero?
   end
 end
