@@ -15,10 +15,14 @@ class PlayerCar < Vehicle
   end
 
   def update
-    up if @window.button_down?(Gosu::KbUp) && @y > PADDING
-    left if @window.button_down?(Gosu::KbLeft) && @x > PADDING
-    down if @window.button_down?(Gosu::KbDown) && @y < @tiles.height - PADDING
-    right if @window.button_down?(Gosu::KbRight) && @x < @tiles.width - PADDING
+    move(:up,    Gosu::KbUp,    @y > PADDING)
+    move(:left,  Gosu::KbLeft,  @x > PADDING)
+    move(:down,  Gosu::KbDown,  @y < @tiles.height - PADDING)
+    move(:right, Gosu::KbRight, @x < @tiles.width - PADDING)
     super
+  end
+
+  def move(dir, key, inside)
+    send(dir) if @window.button_down?(key) && inside
   end
 end
