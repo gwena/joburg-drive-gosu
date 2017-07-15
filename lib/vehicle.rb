@@ -69,6 +69,6 @@ class Vehicle
   end
 
   def draw
-    @image.draw_rot(@x - @window.x, @y - @window.y, 1, @transition_angle, 0.5, 0.5, 0.4, 0.4)
+    @image.draw_rot(@x - @window.x, @y - @window.y, 1, @transition_angle, 0.5, 0.5, 0.45, 0.45)
   end
 end
