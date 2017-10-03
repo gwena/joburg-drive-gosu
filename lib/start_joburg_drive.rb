@@ -88,6 +88,7 @@ class GameWindow < Gosu::Window
     @font.draw(@waste.size, pos_x + 70, OFFSET_BOARD + 5, 1)
 
     @pothole.draw(pos_x + 5, OFFSET_BOARD + 45, 1, 0.4, 0.4)
+    @font.draw("0", pos_x + 70, OFFSET_BOARD + 45, 1)
   end
 
   def button_down(id)
