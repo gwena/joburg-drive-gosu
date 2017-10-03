@@ -83,12 +83,12 @@ class GameWindow < Gosu::Window
 
   def draw_scores
     pos_x = @player.x > 400 || @player.y > 250 ? OFFSET_BOARD : WIDTH - OFFSET_BOARD - @board.width
-    @board.draw(pos_x, OFFSET_BOARD, 1)
+    @board.draw(pos_x, OFFSET_BOARD, 1, 0.5, 0.8)
     @binbag.draw(pos_x + 5, OFFSET_BOARD + 5, 1)
-    @font.draw(@waste.size, pos_x + 70, OFFSET_BOARD + 5, 1)
+    @font.draw(@waste.size, pos_x + 75, OFFSET_BOARD + 5, 1)
 
     @pothole.draw(pos_x + 5, OFFSET_BOARD + 45, 1, 0.4, 0.4)
-    @font.draw("0", pos_x + 70, OFFSET_BOARD + 45, 1)
+    @font.draw("0", pos_x + 75, OFFSET_BOARD + 45, 1)
   end
 
   def button_down(id)
