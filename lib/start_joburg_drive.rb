@@ -45,6 +45,7 @@ class GameWindow < Gosu::Window
     @font = Gosu::Font.new(40)
     @board = Gosu::Image.new('media/img/icon/Scores-Background.png')
     @pothole = Gosu::Image.new('media/img/icon/Pothole.png')
+    @binbag = Gosu::Image.new('media/img/waste/Binbags-State-3.png')
   end
 
   def update
@@ -83,7 +84,8 @@ class GameWindow < Gosu::Window
   def draw_scores
     pos_x = @player.x > 400 || @player.y > 250 ? OFFSET_BOARD : WIDTH - OFFSET_BOARD - @board.width
     @board.draw(pos_x, OFFSET_BOARD, 1)
-    @font.draw(@waste.size, pos_x + 10, OFFSET_BOARD + 5, 1)
+    @binbag.draw(pos_x + 5, OFFSET_BOARD + 5, 1)
+    @font.draw(@waste.size, pos_x + 70, OFFSET_BOARD + 5, 1)
 
     @pothole.draw(pos_x + 100, 5, 1)
   end
